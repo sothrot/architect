@@ -398,7 +398,7 @@ Base recommendations on user's specific niche, target audience, and goals. Optim
             ]}
           >
             <Text style={styles.title}>ni posting schedule</Text>
-            <Text style={styles.subtitle}>Optimize your content with AI my ni</Text>
+            <Text style={styles.subtitle}>Optimize your content with AI my ni </Text>
             
             <Text style={styles.label}>Tell me what you need, son</Text>
             <TextInput
