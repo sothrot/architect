@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, ActivityIndicator, Animated } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Modal, ActivityIndicator, Animated, KeyboardAvoidingView, Platform } from 'react-native';
 
 const App = () => {
   const [useCase, setUseCase] = React.useState('');
@@ -364,11 +364,17 @@ Base recommendations on user's specific niche, target audience, and goals. Optim
   };
 
   return (
-    <View style={styles.containerNoScroll}>
+    <KeyboardAvoidingView 
+      style={styles.containerNoScroll}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={0}
+    >
       <ScrollView 
         style={styles.scrollView}
+        contentContainerStyle={styles.scrollViewContent}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         <View style={styles.content}>
         {schedule.length > 0 && !inputVisible && (
@@ -391,15 +397,15 @@ Base recommendations on user's specific niche, target audience, and goals. Optim
               }
             ]}
           >
-            <Text style={styles.title}>TikTok Posting Schedule</Text>
-            <Text style={styles.subtitle}>Optimize your content strategy with AI</Text>
+            <Text style={styles.title}>nig posting schedule</Text>
+            <Text style={styles.subtitle}>Optimize your content with AI my nig</Text>
             
-            <Text style={styles.label}>Describe your use case</Text>
+            <Text style={styles.label}>Tell me what you need, son</Text>
             <TextInput
               style={styles.input}
               value={useCase}
               onChangeText={setUseCase}
-              placeholder="e.g., I need a weekly posting schedule for a fitness brand targeting Gen Z..."
+              placeholder="e.g., I need a weekly posting schedule for a fitness brand targeting Gen Z niglets..."
               placeholderTextColor="#6b5a9e"
               multiline
               numberOfLines={4}
@@ -422,7 +428,7 @@ Base recommendations on user's specific niche, target audience, and goals. Optim
 
         {schedule.length > 0 && (
           <View style={styles.scheduleSection}>
-            <Text style={styles.scheduleTitle}>Your Custom Schedule</Text>
+            <Text style={styles.scheduleTitle}>Your hog rider Schedule</Text>
             <Text style={styles.monthTitle}>{getMonthTitle(schedule)}</Text>
             <View style={styles.weekdayHeader}>
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, idx) => (
@@ -517,7 +523,7 @@ Base recommendations on user's specific niche, target audience, and goals. Optim
         </Modal>
       </View>
     </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -528,6 +534,12 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor: '#0f0a1f',
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    backgroundColor: '#0f0a1f',
+    minHeight: '100vh',
   },
   content: {
     flex: 1,
@@ -536,6 +548,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     padding: 16,
     paddingTop: 40,
+    paddingBottom: 40,
+    justifyContent: 'center',
+    backgroundColor: '#0f0a1f',
   },
   newRequestButton: {
     backgroundColor: '#8b5cf6',
@@ -557,6 +572,7 @@ const styles = StyleSheet.create({
   },
   inputSection: {
     width: '100%',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 32,
